@@ -21,6 +21,11 @@
 	
 	<form action="UserController" method="POST" name="frmAddUser">
 	<table>
+	
+		<tr>
+			<td>User ID:</td>
+			<td><input type="text" readonly="readonly" name="userId" value="<c:out value="${user.userId}"/>"/></td>
+		</tr>
 		<tr>
 			<td>Nome:</td>
 			<td><input type="text" name="name" value="<c:out value="${user.name}"/>"/></td>

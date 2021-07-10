@@ -83,20 +83,18 @@ public class UserController extends HttpServlet {
 		user.setPassword(request.getParameter("password"));
 		
 		
-		String userId= user.getUserId().toString();
+		String userId= request.getParameter("userId");
 		System.out.println(userId);
 		
 		if(userId==null ||userId.isEmpty()) {
 			try {
 				userRepository.addUser(user);
-				System.out.println("Inseriu!");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				System.out.println("Não inseriu");
 			}
 		}else {
-			
+			user.setUserId(Integer.parseInt(userId));
 			try {
 				userRepository.putUser(user);
 			} catch (Exception e) {
@@ -104,6 +102,7 @@ public class UserController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+			
 		
 		RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
 		
@@ -116,6 +115,8 @@ public class UserController extends HttpServlet {
 		}
 		view.forward(request, response);
 		
-		
+			
+		}
 	}
-}
+
+
