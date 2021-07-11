@@ -1,40 +1,37 @@
 package com.desafioSefazPitang.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.Column;
 
-@Entity
+
+
+
+
 public class Phone {
-
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private Integer ddd;
-    private String numero;
-    private String tipoTelefone;
+	
+	
+	@Column
+	private String number;
+	@Column
+    private String typePhone;
     
-	public Integer getDdd() {
-		return ddd;
+    
+    
+	public String getNumber() {
+		return number;
 	}
-	public void setDdd(Integer ddd) {
-		this.ddd = ddd;
+	public void setNumber(String number) {
+		this.number = number;
 	}
-	public String getTipoTelefone() {
-		return tipoTelefone;
+	public String getTypePhone() {
+		return typePhone;
 	}
-	public void setTipoTelefone(String tipoTelefone) {
-		this.tipoTelefone = tipoTelefone;
+	public void setTypePhone(String typePhone) {
+		this.typePhone = typePhone;
 	}
-	public String getNumero() {
-		return numero;
-	}
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
+	
+	
+	
     
     
     

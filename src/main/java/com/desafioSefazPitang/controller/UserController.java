@@ -13,12 +13,13 @@ import com.desafioSefazPitang.model.User;
 import com.desafioSefazPitang.repository.UserRepository;
 
 
-@WebServlet(name ="User",urlPatterns = {"/"}  )
+@WebServlet(name ="User",urlPatterns = {"/UserController"}  )
 public class UserController extends HttpServlet {
 	
 	private static final long serialVersionUID= 1L;
 	private static String INSERT_OR_EDIT= "/user.jsp";
 	private static String LIST_USER= "/listUser.jsp";
+	
 	private UserRepository userRepository;
 	
 	public UserController() {
@@ -66,6 +67,10 @@ public class UserController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			}
+			
+		else if (action.equalsIgnoreCase("loginUser")) {
+				
 		}else {
 			forward = INSERT_OR_EDIT;
 		}
@@ -118,5 +123,3 @@ public class UserController extends HttpServlet {
 			
 		}
 	}
-
-

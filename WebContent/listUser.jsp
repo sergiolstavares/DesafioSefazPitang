@@ -19,6 +19,7 @@
 			<th>Nome</th>
 			<th>Email</th>
 			<th>Senha</th>
+			<th>Telefones</th>
 			<th>Editar</th>
 			<th>Excluir</th>
 		</tr>
@@ -29,6 +30,7 @@
 					<td><c:out value="${user.name}"/></td>
 					<td><c:out value="${user.email}"/></td>
 					<td><c:out value="${user.password}"/></td>
+					<td><a href="UserController?action=listPhones&userId=<c:out value="${user.userId}"/>">Telefones</a></td>
 					<td><a href="UserController?action=edit&userId=<c:out value="${user.userId}"/>">Editar</a></td>
 					<td><a href="UserController?action=delete&userId=<c:out value="${user.userId}"/>">Deletar</a></td>
 				</tr>		

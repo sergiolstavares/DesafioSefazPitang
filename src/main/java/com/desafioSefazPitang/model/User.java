@@ -1,6 +1,5 @@
 package com.desafioSefazPitang.model;
 
-
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
@@ -23,10 +22,13 @@ public class User {
     @Column(nullable = false)
     @Size(min = 6,max = 50)
     private String password;
-
+    
+    
 
 
 	
+	
+
 	public Long getUserId() {
 		return userId;
 	}

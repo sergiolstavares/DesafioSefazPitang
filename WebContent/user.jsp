@@ -40,7 +40,15 @@
 			<td>Senha:</td>
 			<td><input type="password" name="password" value="<c:out value="${user.password}"/>"/></td>
 		</tr>
+		<tr>
+			<td>Telefone 1:</td>
+			<td><input type="text" name="phone1" value="<c:out value="${phone.number}"/>"/></td>
+			
+			<td>Tipo do telefone:</td>
+			<td><input type="text" name="typePhone1" value="<c:out value="${phone.typePhone}"/>"/></td>
+		</tr>
 		
+	
 		<tr>
 			<td colspan="2">
 				<input type="submit" value="Adicionar usuario" />
