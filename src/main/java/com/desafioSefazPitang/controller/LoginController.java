@@ -16,7 +16,7 @@ import com.desafioSefazPitang.repository.UserRepository;
 
 
 
-@WebServlet(name ="Login",urlPatterns = {"/LoginController"}  )
+@WebServlet(name ="Login",urlPatterns = {"/","/main"}  )
 public class LoginController extends HttpServlet {
 	
 	
