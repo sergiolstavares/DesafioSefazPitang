@@ -1,0 +1,6 @@
+com\desafioSefazPitang\controller\LoginController.class
+com\desafioSefazPitang\repository\UserRepository.class
+com\desafioSefazPitang\model\Phone.class
+com\desafioSefazPitang\bean\JpaResourcesBean.class
+com\desafioSefazPitang\model\User.class
+com\desafioSefazPitang\controller\UserController.class

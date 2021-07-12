@@ -69,9 +69,7 @@ public class UserController extends HttpServlet {
 			}
 			}
 			
-		else if (action.equalsIgnoreCase("loginUser")) {
-				
-		}else {
+		else {
 			forward = INSERT_OR_EDIT;
 		}
 		

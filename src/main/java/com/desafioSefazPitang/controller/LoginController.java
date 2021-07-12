@@ -39,13 +39,12 @@ public class LoginController extends HttpServlet {
 	
 	
 	protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-		boolean logado = false;
-		System.out.println("entrou aqui");
+		
 		String loginEmail = request.getParameter("loginEmail");
 		String loginPassword = request.getParameter("loginPassword");
 		
 		try {
-			System.out.println("entrou no certo");
+			
 			List<User> users = userRepository.getAll();
 			for(User user: users){
 				
