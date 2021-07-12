@@ -3,16 +3,19 @@ package com.desafioSefazPitang.controller;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import com.desafioSefazPitang.model.User;
 import com.desafioSefazPitang.repository.UserRepository;
+
+
+
+
 
 
 
@@ -39,29 +42,34 @@ public class LoginController extends HttpServlet {
 	
 	
 	protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-		
-		String loginEmail = request.getParameter("loginEmail");
-		String loginPassword = request.getParameter("loginPassword");
+			boolean logado = false;
 		
 		try {
 			
+			String loginEmail = request.getParameter("loginEmail");
+			String loginPassword = request.getParameter("loginPassword");
+			
 			List<User> users = userRepository.getAll();
+			
+			
 			for(User user: users){
 				
 				String emailUser = user.getEmail();
 				String passwordUser=user.getPassword();
 				
-				if(emailUser.equals(loginEmail) & (passwordUser.equals(loginPassword))){
-						
-					 response.sendRedirect(INDEX_USER);
-				}else{
-					response.sendRedirect(LOGIN_USER);
-					
+				
+				if(loginEmail.equals(emailUser) & loginPassword.equals(passwordUser)){
+					 response.sendRedirect("/desafioSefazPitang/index.jsp");
+					 logado = true;
+					 break;
+					 
 				}
-		}
 			
+		}
+			if(logado == false) {
+				response.sendRedirect(LOGIN_USER);
+			}
 } catch (Exception e) {
-	response.sendRedirect(LOGIN_USER);
-}
+}	
 	}
 }
