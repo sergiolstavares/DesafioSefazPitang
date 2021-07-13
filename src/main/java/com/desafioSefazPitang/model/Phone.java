@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Phone {
@@ -21,13 +22,13 @@ public class Phone {
 	
 	
 	@ManyToOne(cascade = CascadeType.DETACH)
-	@JoinColumn(name = "idUser")
+	@JoinColumn(name = "idUser",nullable = false)
 	private User user;
 	
-	@Column
+	@Column(nullable = false, length = 11)
 	private String number;
 	
-	@Column
+	@Column(nullable = false, length = 11)
 	private String typePhone;
 	
 	

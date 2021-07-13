@@ -17,6 +17,8 @@
 <body>
 	
 	
+	
+	
 	<div class="container">
 		<h2>Cadastre-se</h2>
 		<form action="UserController" method="POST" name="frmAddUser">
@@ -28,37 +30,39 @@
 			  	
 			  <div class="mb-3">
 			    <label for="exampleInputEmail1" class="form-label">Nome</label>
-			    <input type="text" class="form-control" name="name" value="<c:out value="${user.name}"/>" id= "name">
+			    <input type="text"  class="form-control" name="name" required="required" value="<c:out value="${user.name}"/>" id= "name">
 			  </div>
 			  <div class="mb-3">
 			    <label for="exampleInputEmail1" class="form-label">Email</label>
-			    <input type="email" class="form-control" name="email" value="<c:out value="${user.email}"/>" id="email" aria-describedby="emailHelp">
+			    <input type="email" class="form-control" name="email" required="required" value="<c:out value="${user.email}"/>" id="email" aria-describedby="emailHelp">
 			    
 			  </div>
 			  <div class="mb-3">
 			    <label for="exampleInputPassword1" class="form-label">Senha</label>
-			    <input type="password" class="form-control" name = "password" value="<c:out value="${user.password}"/>" id="password">
+			    <input type="password" class="form-control" name = "password" required="required" value="<c:out value="${user.password}"/>" id="password">
 			  </div>
 			  
 			  <div class="mb-3">
 			   
 			    <label for="exampleInputEmail1" class="form-label">Telefone 1</label>
 			    
-			    <input type="text" class="form-control" name="phone1" id="phone1" placeholder="(xx)xxxxx-xxxx" aria-describedby="emailHelp">
+			    <input type="text" class="form-control" name="phone1" id="phone1"  aria-describedby="emailHelp" placeholder="Numero">
 			     <p></p>
-			    <input type="text" class="form-control" name="typePhone1" id="typePhone1" placeholder="Tipo do Telefone" aria-describedby="emailHelp">
+			    <input type="text" class="form-control" name="typePhone1" id="typePhone1"  aria-describedby="emailHelp" placeholder="Tipo: ex-> Residencial/Pessoal">
 			    <p></p>
 			    <label for="exampleInputEmail1" class="form-label">Telefone 2</label>
 			    
-			    <input type="text" class="form-control" name="phone2" id="phone2" placeholder="(xx)xxxxx-xxxx" aria-describedby="emailHelp"> 
+			    <input type="text" class="form-control" name="phone2" id="phone2" aria-describedby="emailHelp" placeholder="Numero">
 			    <p></p>
-			    <input type="text" class="form-control" name="typePhone2" id="typePhone2" placeholder="Tipo do Telefone" aria-describedby="emailHelp">
+			    <input type="text" class="form-control" name="typePhone2" id="typePhone2" aria-describedby="emailHelp" placeholder="Tipo: ex-> Residencial/Pessoal">
 			    
 			  </div>
 			  
 			 
 			 
 			  <button type="submit" class="btn btn-primary">Cadastrar</button>
+			  <a href="/desafioSefazPitang/login.jsp"><button type="button" class="btn btn-primary">Login</button></a> 
+			  
 	 
 	  </form>
 	  

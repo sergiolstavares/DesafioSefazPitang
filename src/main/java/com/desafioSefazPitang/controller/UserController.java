@@ -58,9 +58,24 @@ public class UserController extends HttpServlet {
 		} else if (action.equalsIgnoreCase("edit")) {
 			forward = INSERT_OR_EDIT;
 			int userId = Integer.parseInt(request.getParameter("userId"));
-			User user;
+			
+			User user ;
+			
 			try {
+				
 				user = userRepository.findUserById(userId);
+				
+				Phone phone1 = new Phone(request.getParameter("phone1"),request.getParameter("typePhone1"));
+				Phone phone2 = new Phone(request.getParameter("phone2"),request.getParameter("typePhone2"));
+				
+				phone1.setUser(user);
+				phone2.setUser(user);
+				
+				user.setPhones(Arrays.asList(phone1,phone2));
+				
+				phoneRepository.addPhone(phone1);
+				phoneRepository.addPhone(phone2);
+				
 				request.setAttribute("user", user);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
