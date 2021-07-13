@@ -32,7 +32,7 @@ public class LoginController extends HttpServlet {
 
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) // Método para Realizar o login
 			throws ServletException, IOException {
 		boolean logado = false;
 

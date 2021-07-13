@@ -10,7 +10,7 @@ import com.desafioSefazPitang.bean.JpaResourcesBean;
 import com.desafioSefazPitang.model.Phone;
 import com.desafioSefazPitang.model.User;
 
-public class PhoneRepository {
+public class PhoneRepository { //Camada para persistência no banco 
 
 	public void addPhone(Phone phone) throws Exception {
 		EntityManager em = JpaResourcesBean.getEntityManagerFactory().createEntityManager();
