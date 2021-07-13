@@ -1,7 +1,5 @@
 package com.desafioSefazPitang.repository;
 
-
-
 import javax.persistence.EntityManager;
 
 import com.desafioSefazPitang.bean.JpaResourcesBean;

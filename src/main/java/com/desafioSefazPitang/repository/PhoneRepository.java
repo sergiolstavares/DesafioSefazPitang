@@ -1,38 +1,56 @@
-/*
- * package com.desafioSefazPitang.repository;
- * 
- * import java.util.List;
- * 
- * import javax.persistence.EntityManager;
- * 
- * import com.desafioSefazPitang.bean.JpaResourcesBean; import
- * com.desafioSefazPitang.model.Phone;
- * 
- * 
- * public class PhoneRepository {
- * 
- * 
- * 
- * 
- * public Long addPhone(Phone phone) throws Exception{ EntityManager em =
- * JpaResourcesBean.getEntityManagerFactory().createEntityManager();
- * 
- * try{ em.getTransaction().begin(); em.persist(phone);
- * em.getTransaction().commit(); return phone.getPhoneId(); }catch(Exception e){
- * 
- * em.getTransaction().rollback(); return 1023231323213232L; }finally {
- * em.close(); }
- * 
- * 
- * }
- * 
- * 
- * 
- * public List<Phone> findPhonesByUserId(long userId)throws Exception{
- * List<Phone> phones; EntityManager em =
- * JpaResourcesBean.getEntityManagerFactory().createEntityManager();
- * 
- * try{ phones =
- * em.createQuery("FROM Phone WHERE userId = :userId ").setParameter("phoneId",
- * userId).getResultList(); return phones; }finally { em.close(); } } }
- */
+
+package com.desafioSefazPitang.repository;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+import com.desafioSefazPitang.bean.JpaResourcesBean;
+import com.desafioSefazPitang.model.Phone;
+import com.desafioSefazPitang.model.User;
+
+public class PhoneRepository {
+
+	public void addPhone(Phone phone) throws Exception {
+		EntityManager em = JpaResourcesBean.getEntityManagerFactory().createEntityManager();
+
+		try {
+			em.getTransaction().begin();
+			em.persist(phone);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+
+			em.getTransaction().rollback();
+		} finally {
+			em.close();
+		}
+
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Phone> getAllPhonesByUser(long idUser) throws Exception {
+		EntityManager em = JpaResourcesBean.getEntityManagerFactory().createEntityManager();
+
+		List<Phone> phones = null;
+
+		try {
+			TypedQuery<Phone> q = em.createQuery("SELECT p FROM Phone p WHERE p.userId = ?1", Phone.class)
+					.setParameter(1, idUser);
+			
+			
+			phones = q.getResultList();
+		
+		} catch (Exception e) {
+			throw new Exception(e);
+		} finally {
+			em.close();
+		}
+		return phones;
+	}
+
+
+	
+	}
+	
+	
