@@ -10,6 +10,7 @@ Durante esse projeto foram desenvolvidos e abordados os seguintes tópicos:
 * Validações via Jsp e Jpa
 
 *Servidor utilizado: Tomcat V 8.0
+<p>
 *Caminho Raiz do projeto:/desafioSefazPitang
 
 
