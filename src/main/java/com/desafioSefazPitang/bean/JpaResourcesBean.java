@@ -5,14 +5,14 @@ import javax.persistence.Persistence;
 
 public class JpaResourcesBean {
 
-    private static EntityManagerFactory entityManagerFactory;
+	private static EntityManagerFactory entityManagerFactory;
 
-    public static EntityManagerFactory getEntityManagerFactory(){
-        if(entityManagerFactory == null){
-            entityManagerFactory = Persistence.createEntityManagerFactory("pitangBD");
-        }
+	public static EntityManagerFactory getEntityManagerFactory() {
+		if (entityManagerFactory == null) {
+			entityManagerFactory = Persistence.createEntityManagerFactory("pitangBD");
+		}
 
-        return entityManagerFactory;
-    }
+		return entityManagerFactory;
+	}
 
 }

@@ -34,22 +34,23 @@ public class UserController extends HttpServlet {
 
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) // Método para redirecionar as
+																					// solicitações
 			throws ServletException, IOException {
 		String forward = "";
 		String action = request.getParameter("action");
 
-		if (action.equalsIgnoreCase("delete")) {
+		if (action.equalsIgnoreCase("delete")) {                                   // Condicional para detectar a requisição do usuário
 			long userId = Integer.parseInt(request.getParameter("userId"));
 			try {
 				userRepository.delete(userId);
-				
+
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			forward = LIST_USER;
-			try {
+			try {																//Após deletar redireciona para lista de usuarios
 				request.setAttribute("users", userRepository.getAll());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -58,24 +59,24 @@ public class UserController extends HttpServlet {
 		} else if (action.equalsIgnoreCase("edit")) {
 			forward = INSERT_OR_EDIT;
 			int userId = Integer.parseInt(request.getParameter("userId"));
-			
-			User user ;
-			
+
+			User user;
+
 			try {
-				
+
 				user = userRepository.findUserById(userId);
-				
-				Phone phone1 = new Phone(request.getParameter("phone1"),request.getParameter("typePhone1"));
-				Phone phone2 = new Phone(request.getParameter("phone2"),request.getParameter("typePhone2"));
-				
+
+				Phone phone1 = new Phone(request.getParameter("phone1"), request.getParameter("typePhone1"));
+				Phone phone2 = new Phone(request.getParameter("phone2"), request.getParameter("typePhone2"));
+
 				phone1.setUser(user);
 				phone2.setUser(user);
-				
-				user.setPhones(Arrays.asList(phone1,phone2));
-				
+
+				user.setPhones(Arrays.asList(phone1, phone2));
+
 				phoneRepository.addPhone(phone1);
 				phoneRepository.addPhone(phone2);
-				
+
 				request.setAttribute("user", user);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -100,9 +101,9 @@ public class UserController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			
+
 			try {
-				request.setAttribute("phones",phoneRepository.getAllPhonesByUser(user));
+				request.setAttribute("phones", phoneRepository.getAllPhonesByUser(user));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -118,34 +119,32 @@ public class UserController extends HttpServlet {
 
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)   // Método para realizar o cadastro e atualização de usuários
+			throws ServletException, IOException {
+
 		User user = new User();
-		Phone phone1 = new Phone(request.getParameter("phone1"),request.getParameter("typePhone1"));
-		Phone phone2 = new Phone(request.getParameter("phone2"),request.getParameter("typePhone2"));
-		
+		Phone phone1 = new Phone(request.getParameter("phone1"), request.getParameter("typePhone1"));
+		Phone phone2 = new Phone(request.getParameter("phone2"), request.getParameter("typePhone2"));
+
 		phone1.setUser(user);
 		phone2.setUser(user);
-		
-		user.setPhones(Arrays.asList(phone1,phone2));
-		
+
+		user.setPhones(Arrays.asList(phone1, phone2));
+
 		user.setName(request.getParameter("name"));
 		user.setEmail(request.getParameter("email"));
 		user.setPassword(request.getParameter("password"));
-		
-		
 
 		String userId = request.getParameter("userId");
 		System.out.println(userId);
 
 		if (userId == null || userId.isEmpty()) {
 			try {
-				
+
 				userRepository.addUser(user);
 				phoneRepository.addPhone(phone1);
 				phoneRepository.addPhone(phone2);
-				
-				
+
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -160,13 +159,11 @@ public class UserController extends HttpServlet {
 			}
 		}
 
-		
-		
 		RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
 
-		try {
+		try {																	//Após adicionar ou atualizar redirecionar para a lista de usuarios como todos os usuarios atuais
 			request.setAttribute("users", userRepository.getAll());
-		
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
