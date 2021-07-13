@@ -20,14 +20,15 @@
 	<form action="LoginController" method="POST" name="loginUser">
 		  <div class="mb-3">
 		    <label for="exampleInputEmail1" class="form-label">Email</label>
-		    <input type="email" class="form-control" name = "loginEmail" id="loginEmail" aria-describedby=loginEmail>
+		    <input type="email" class="form-control" name = "loginEmail" id="loginEmail" aria-describedby=loginEmail required="required">
 		  </div>
 		  <div class="mb-3">
 		    <label for="exampleInputPassword1" class="form-label">Password</label>
-		    <input type="password" class="form-control" name="loginPassword" id="loginPassword">
+		    <input type="password" class="form-control" name="loginPassword" id="loginPassword" required="required">
 		  </div>
 		  
-		  <button type="submit" class="btn btn-primary">Logar</button> <a href="/desafioSefazPitang/user.jsp"><button type="button" class="btn btn-primary">Cadastre-se</button></a>
+		  <button type="submit" class="btn btn-primary">Logar</button> <a href="/desafioSefazPitang/user.jsp"><button type="button" class="btn btn-primary">Cadastre-se</button></a> 
+		  
 		</form>
 	</div>
 

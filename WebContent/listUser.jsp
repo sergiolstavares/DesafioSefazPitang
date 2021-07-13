@@ -43,7 +43,8 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<p><a href="UserController?action=insert">Adicionar usuário</a></p>
+	<a href="UserController?action=insert"><button type="button" class="btn btn-primary">Adicionar Usuario</button></a> 
+	<a href="/desafioSefazPitang/login.jsp"><button type="button" class="btn btn-primary">Voltar para o login</button></a> 
 	</div>
 	
 </body>

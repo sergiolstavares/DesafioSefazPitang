@@ -17,11 +17,11 @@ public class User {
 	private Long userId;
 
 	@Column(nullable = false)
-	@Size(min = 2, max = 50)
+	@Size(min = 5, max = 50)
 	private String name;
 
 	@Column(nullable = false)
-	@Size(min = 2, max = 100)
+	@Size(min = 11, max = 50)
 	private String email;
 
 	@Column(nullable = false)
