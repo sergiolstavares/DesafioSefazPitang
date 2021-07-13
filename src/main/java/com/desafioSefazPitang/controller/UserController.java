@@ -77,8 +77,17 @@ public class UserController extends HttpServlet {
 			}
 		} else if (action.equalsIgnoreCase("listPhones")) {
 			forward = LIST_PHONES;
+			int userId = Integer.parseInt(request.getParameter("userId"));
+			User user = new User();
 			try {
-				request.setAttribute("phones",phoneRepository.getAllPhonesByUser(Integer.parseInt(request.getParameter("userId"))));
+				user = userRepository.findUserById(userId);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			try {
+				request.setAttribute("phones",phoneRepository.getAllPhonesByUser(user));
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -142,6 +151,7 @@ public class UserController extends HttpServlet {
 
 		try {
 			request.setAttribute("users", userRepository.getAll());
+		
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -29,14 +29,14 @@ public class PhoneRepository {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Phone> getAllPhonesByUser(long idUser) throws Exception {
+	public List<Phone> getAllPhonesByUser(User user) throws Exception {
 		EntityManager em = JpaResourcesBean.getEntityManagerFactory().createEntityManager();
 
 		List<Phone> phones = null;
 
 		try {
-			TypedQuery<Phone> q = em.createQuery("SELECT p FROM Phone p WHERE p.userId = ?1", Phone.class)
-					.setParameter(1, idUser);
+			TypedQuery<Phone> q = em.createQuery("SELECT p FROM Phone p WHERE p.user = ?1", Phone.class)
+					.setParameter(1, user);
 			
 			
 			phones = q.getResultList();

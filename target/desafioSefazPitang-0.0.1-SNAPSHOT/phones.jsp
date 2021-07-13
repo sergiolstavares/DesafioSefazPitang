@@ -19,7 +19,7 @@
 			<th>Tipo</th>
 		</tr>
 		<tbody>
-			<c:forEach items="${phones}" var="phones">
+			<c:forEach items="${phone}" var="phones">
 				<tr>
 					<td><c:out value="${phone.number}"/></td>
 					<td><c:out value="${phone.typePhone}"/></td>
